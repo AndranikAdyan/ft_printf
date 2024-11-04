@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:58 by aadyan            #+#    #+#             */
-/*   Updated: 2024/11/04 14:02:29 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/11/04 16:53:27 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,11 @@
 
 int	print_pointer(void *ptr)
 {
-	unsigned long	addr;
-	unsigned char	nibble;
-	int				i;
-	int				count;
+	unsigned long long p;
+	p = (unsigned long long)ptr;
 
 	write(1, "0x", 2);
-	addr = (unsigned long)ptr;
-	i = sizeof(addr) * 2 - 5;
-	count = 0;
-	while (i >= 0)
-	{
-		nibble = addr >> (i * 4) & 0xf;
-		count += ft_putchar("0123456789abcdef"[nibble]);
-		--i;
-	}
-	return (count);
+	return (dec_to_hex(p, 1) + 2);
 }
 
 int	check_print(char **str, va_list arg)
@@ -66,8 +55,20 @@ int	ft_printf(char *str, ...)
 	va_start(arg, str);
 	while (*str)
 	{
-		check_print(&str, arg);
+		if (*str == '%')
+			check_print(&str, arg);
+		else
+			ft_putchar(*str);
 		str++;
 	}
 	return (0);
+}
+
+int main()
+{
+	unsigned long long int a = 7654387678765765876;
+	printf("===%p===\n", &a);
+	ft_printf("===%p===", &a);
+
+	return 0;
 }

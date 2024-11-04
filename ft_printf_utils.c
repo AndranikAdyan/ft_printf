@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:17:16 by aadyan            #+#    #+#             */
-/*   Updated: 2024/11/04 14:00:52 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/11/04 16:51:37 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	ft_put_unsigned_nbr(unsigned int nb)
 	return (count);
 }
 
-int	dec_to_hex(unsigned int nb, int lower_case)
+int	dec_to_hex(unsigned long long nb, int lower_case)
 {
 	int		count;
 
