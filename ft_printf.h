@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:51:54 by aadyan            #+#    #+#             */
-/*   Updated: 2024/11/04 16:53:59 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/11/05 19:14:32 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
+int		ft_printf(char *str, ...);
 int		ft_putnbr(int nb);
 int		ft_putchar(char c);
 int		check_print(char **str, va_list arg);

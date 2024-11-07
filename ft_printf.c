@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:58 by aadyan            #+#    #+#             */
-/*   Updated: 2024/11/04 16:53:27 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/11/07 13:10:54 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	print_pointer(void *ptr)
 {
-	unsigned long long p;
-	p = (unsigned long long)ptr;
+	unsigned long long	p;
 
+	p = (unsigned long long)ptr;
 	write(1, "0x", 2);
 	return (dec_to_hex(p, 1) + 2);
 }
@@ -51,24 +51,17 @@ int	check_print(char **str, va_list arg)
 int	ft_printf(char *str, ...)
 {
 	va_list	arg;
+	int		count;
 
+	count = 0;
 	va_start(arg, str);
 	while (*str)
 	{
 		if (*str == '%')
-			check_print(&str, arg);
+			count += check_print(&str, arg);
 		else
-			ft_putchar(*str);
+			count += ft_putchar(*str);
 		str++;
 	}
-	return (0);
-}
-
-int main()
-{
-	unsigned long long int a = 7654387678765765876;
-	printf("===%p===\n", &a);
-	ft_printf("===%p===", &a);
-
-	return 0;
+	return (count);
 }
