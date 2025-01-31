@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:17:16 by aadyan            #+#    #+#             */
-/*   Updated: 2024/11/05 19:55:49 by aadyan           ###   ########.fr       */
+/*   Updated: 2025/01/31 22:45:37 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (str[i])
 	{
 		write(1, &str[i], 1);
@@ -82,13 +87,12 @@ int	dec_to_hex(unsigned long long nb, int lower_case)
 {
 	int		count;
 
+	count = 0;
 	if (lower_case)
 	{
-		count = 0;
 		if (nb >= 16)
 			count += dec_to_hex(nb / 16, lower_case);
 		count += ft_putchar("0123456789abcdef"[nb % 16]);
-		return (count);
 	}
 	else
 	{
@@ -96,7 +100,6 @@ int	dec_to_hex(unsigned long long nb, int lower_case)
 		if (nb >= 16)
 			count += dec_to_hex(nb / 16, lower_case);
 		count += ft_putchar("0123456789ABCDEF"[nb % 16]);
-		return (count);
 	}
-	return (0);
+	return (count);
 }
