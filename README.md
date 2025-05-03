@@ -26,19 +26,31 @@ The goal of `ft_printf` is to reproduce the behavior of the standard `printf()` 
 
 ---
 
-## 🔧 Compilation
-
-Since there is **no Makefile**, compile manually:
+## 🔧 Usage
 
 ```bash
-gcc -Wall -Wextra -Werror ft_printf.c ft_printf_utils.c main.c
+# Clone this repo
+git clone https://github.com/AndranikAdyan/ft_printf.git
+cd ft_printf
+
+# Compile the project
+make
+
+# Clean object files
+make clean
+
+# Remove object files and archive file
+make fclean
+
+# Rebuild everything
+make re
 ```
 
-> Replace `main.c` with your own test file.
-
----
-
 ## 🧪 Example Usage
+
+```bash
+gcc main.c -L. -lftprintf.a
+```
 
 ```c
 #include "ft_printf.h"
@@ -49,8 +61,6 @@ int main(void)
     return 0;
 }
 ```
-
----
 
 ## 📘 Function Prototype
 
